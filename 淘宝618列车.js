@@ -6,17 +6,17 @@ setScreenMetrics(width, height);
 toast("设备高"+height);
 autoplay();
 
-function swipe22s(act){
+function swipe_act(act){
     while(textContains(act).exists()){        
         toast("存在" + act);
         textContains(act).findOne().click();
-        sleep(1500);
+        sleep(random(200,2000)+1500);
         swipe(width / 2, height - 500, width / 2, 0, 500);
-        sleep(2500);
+        sleep(random(200,2000)+2500);
         swipe(width / 2, height - 500, width / 2, 0, 500);
-        sleep(10000);
+        sleep(random(200,2000)+9000);
         swipe(width / 2, height - 500, width / 2, 0, 500);
-        sleep(8000);
+        sleep(random(200,2000)+8000);
         if(textContains("完成").exists()){
             back();
         } else {
@@ -29,6 +29,23 @@ function swipe22s(act){
     sleep(2000);
 }
 
+function swipe_act2(act){
+        while(textContains(act).exists()){        
+            toast("存在" + act);
+            textContains(act).findOne().click();
+            sleep(20000);
+            if(textContains("完成").exists()){
+                back();
+            } else {
+            sleep(5000);
+            back();
+            }
+            sleep(2000);
+        }
+        toast("完成[" + act + "]检测");
+        sleep(2000);
+    }
+
    
 function autoplay(){
     if(textEndsWith("签到").exists()){
@@ -39,9 +56,11 @@ function autoplay(){
     sleep(2000);
     toast("完成[签到]检测");
 
-    swipe22s("去浏览");
-    swipe22s("去搜索");
-    swipe22s("去围观");
+    swipe_act("去浏览");
+    swipe_act("去搜索");
+    swipe_act("去围观");
+    swipe_act2("去观看");
+    
    
     toast("结束");
 }
