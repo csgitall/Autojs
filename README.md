@@ -13,11 +13,8 @@ Step 2
 将手机连接到电脑启用的Wifi或者同一局域网中。通过命令行ipconfig(或者其他操作系统的相同功能命令)查看电脑的IP地址。在Auto.js的侧拉菜单中启用调试服务，并输入IP地址，等待连接成功。
 Step 3
 通过菜单“查看”->“命令面板”->"Auto.js: Run On Device "来运行。
+"Auto.js: Save On Device " 保存至手机
 
-作者：面向未来41319
-链接：https://www.jianshu.com/p/d2ad3ce9cf87
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 【免root脚本制作教程】Auto.js使用教程 （20200603）
 https://www.bilibili.com/read/cv1373672
