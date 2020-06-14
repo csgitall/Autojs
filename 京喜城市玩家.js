@@ -2,17 +2,14 @@ auto.waitFor();
 var height = device.height;
 var width = device.width;
 var i = 0;
-var rule = 2;
-// rule = 0, no rules
-// rule = 1, rules for 京喜城市玩家
-// rule = 2, rules for 淘宝特币
+var rule = 1;
 toast("\n设备宽" + width + "\n" + "设备高" + height)
 setScreenMetrics(width, height);
 console.show();
 autoplay();
 
 //find & swipe 函数 版本 1.0
-//June 14, 2020
+//June 13, 2020
 //包括 过滤函数find_swipe_act 和 滑动函数swipe_act
 //参数包括：
 //按键文字，按键控件
@@ -20,20 +17,11 @@ autoplay();
 //按键进入等待时间，滑动时间，返回主界面等待时间
 function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime){
     log("目前关键字是"+actkey);
-    //过滤规则0， 即无过滤规则
-    if(rule == 0){
-        toast("存在" + actkey);
-        while(textContains(actkey)){
-            act_btn = textContains(actkey).findOne();
-            swipe_act(act_btn,startkey,finishkey,waittime,swipetime,returntime);
-        } 
-        return;
-    }
     act_all = textContains(actkey).find();
     var j = 0;
     for(j=0; j<act_all.length; j++){
         if(rule == 1){
-        // 过滤规则1： 京喜城市玩家
+            // 过滤规则1： 京喜城市玩家
             curr_index=act_all[j].indexInParent();
             //log(button_all[j].text());
             log(act_all[j].parent().child(curr_index-1).text());
@@ -44,12 +32,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
             }
         }
         if(rule == 2){
-        // 过滤规则2：淘宝特币
-        curr_index=act_all[j].indexInParent();
-        log(act_all[j].parent().child(curr_index-1).child(0).text());
-        log(act_all[j].parent().child(curr_index-1).child(1).text());
-        toast("存在" + actkey);
-        swipe_act(act_all[j],startkey,finishkey,waittime,swipetime,returntime);
+        // 过滤规则2：
         }
     }
 }
@@ -57,7 +40,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
 function swipe_act(act_btn,startkey,finishkey,waittime,swipetime,returntime){
     act_btn.click();
     sleep(waittime);
-    // some use textContains, some use descContains, some use picture
+    // some use textContains, some use descContains, some use none
     if(startkey != ""){
         descContains(startkey).findOne(5000);
         if(descContains(startkey).exists()){
@@ -105,8 +88,8 @@ function getaward(actkey,time){
 function autoplay(){
     sleep(2000);
     i = 0;
-    find_swipe_act("去完成","","完成",2500,15000,3000);
-    find_swipe_act("去浏览","","完成",2500,15000,3000);
-    find_swipe_act("去发现","","完成",2500,15000,3000);
+    find_swipe_act("去完成","","完成",2500,5000,5000);
+    i = 0;
+    getaward("领取",5000); 
     log("脚本结束");
 }

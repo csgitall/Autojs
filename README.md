@@ -2,6 +2,23 @@ https://www.autojs.org/
 
 https://github.com/hyb1996/Auto.js
 
+文档：https://hyb1996.github.io/AutoJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0
+
+JavaScript 简介：https://www.runoob.com/js/js-intro.html
+
+Step 1
+按 Ctrl+Shift+P 或点击"查看"->"命令面板"可调出命令面板，输入 Auto.js 可以看到几个命令，移动光标到命令Auto.js: Start Server，按回车键执行该命令。
+此时VS Code会在右上角显示"Auto.js server running"，即开启服务成功。
+Step 2
+将手机连接到电脑启用的Wifi或者同一局域网中。通过命令行ipconfig(或者其他操作系统的相同功能命令)查看电脑的IP地址。在Auto.js的侧拉菜单中启用调试服务，并输入IP地址，等待连接成功。
+Step 3
+通过菜单“查看”->“命令面板”->"Auto.js: Run On Device "来运行。
+
+作者：面向未来41319
+链接：https://www.jianshu.com/p/d2ad3ce9cf87
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 【免root脚本制作教程】Auto.js使用教程 （20200603）
 https://www.bilibili.com/read/cv1373672
  Auto.js是一款写脚本UI界面，运行脚本，制作简单安卓app的全开源的免费APP，类似于按键精灵，本软件除了有全部按键精灵的功能，还有其他例如控件操作等。本软件写脚本基于javascript所以在写脚本方面代码难度较大。
@@ -69,7 +86,7 @@ findOnce()
 find()函数会把选择器转换成合集，他的功能是在当前屏幕上搜索所有符合条件的控件并且都放入控件合集，一起返回，如果没有，那就会返回一个空的控件合集。
 untilFind()同样是返回控件合集，但是不同在于，他会循环寻找，至少要找到一个才会返回合集。也就是说不会返回空合集。
 还有一些控件选择器函数，返回的是其他数据类型，例如函数选择器.exists0，他返回的就是当前屏幕上是否存在符合条件的控件选择器。
-甚至还有一些函数没有返回值，只有一些运行效果，比如选择器.waitForo，他会一直等待符合条件的控件出现。
+甚至还有一些函数没有返回值，只有一些运行效果，比如选择器.waitFor，他会一直等待符合条件的控件出现。
 更多内容查看 https://www.bilibili.com/read/cv1328014
 
 

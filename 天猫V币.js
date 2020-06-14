@@ -2,17 +2,17 @@ auto.waitFor();
 var height = device.height;
 var width = device.width;
 var i = 0;
-var rule = 2;
+var rule = 0;
 // rule = 0, no rules
 // rule = 1, rules for 京喜城市玩家
-// rule = 2, rules for 淘宝特币
+// rule = 2, rules for ?
 toast("\n设备宽" + width + "\n" + "设备高" + height)
 setScreenMetrics(width, height);
 console.show();
 autoplay();
 
 //find & swipe 函数 版本 1.0
-//June 14, 2020
+//June 13, 2020
 //包括 过滤函数find_swipe_act 和 滑动函数swipe_act
 //参数包括：
 //按键文字，按键控件
@@ -33,7 +33,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
     var j = 0;
     for(j=0; j<act_all.length; j++){
         if(rule == 1){
-        // 过滤规则1： 京喜城市玩家
+            // 过滤规则1： 京喜城市玩家
             curr_index=act_all[j].indexInParent();
             //log(button_all[j].text());
             log(act_all[j].parent().child(curr_index-1).text());
@@ -44,12 +44,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
             }
         }
         if(rule == 2){
-        // 过滤规则2：淘宝特币
-        curr_index=act_all[j].indexInParent();
-        log(act_all[j].parent().child(curr_index-1).child(0).text());
-        log(act_all[j].parent().child(curr_index-1).child(1).text());
-        toast("存在" + actkey);
-        swipe_act(act_all[j],startkey,finishkey,waittime,swipetime,returntime);
+        // 过滤规则2：
         }
     }
 }
@@ -57,7 +52,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
 function swipe_act(act_btn,startkey,finishkey,waittime,swipetime,returntime){
     act_btn.click();
     sleep(waittime);
-    // some use textContains, some use descContains, some use picture
+    // some use textContains, some use descContains, some use none
     if(startkey != ""){
         descContains(startkey).findOne(5000);
         if(descContains(startkey).exists()){
@@ -105,8 +100,7 @@ function getaward(actkey,time){
 function autoplay(){
     sleep(2000);
     i = 0;
-    find_swipe_act("去完成","","完成",2500,15000,3000);
-    find_swipe_act("去浏览","","完成",2500,15000,3000);
-    find_swipe_act("去发现","","完成",2500,15000,3000);
+    find_swipe_act("去看看","浏览","恭喜",2500,15000,3000);
+    find_swipe_act("去浏览","浏览","恭喜",2500,15000,3000);
     log("脚本结束");
 }
