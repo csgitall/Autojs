@@ -23,7 +23,7 @@ function find_swipe_act(actkey,startkey,finishkey,waittime,swipetime,returntime)
     //过滤规则0， 即无过滤规则
     if(rule == 0){
         toast("存在" + actkey);
-        while(textContains(actkey)){
+        while(textContains(actkey).exists()){
             act_btn = textContains(actkey).findOne();
             swipe_act(act_btn,startkey,finishkey,waittime,swipetime,returntime);
         } 
